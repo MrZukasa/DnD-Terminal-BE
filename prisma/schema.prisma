@@ -25,7 +25,7 @@ model Backgrounds {
   nome String @db.Text
   competenze String[] @db.Text
   linguaggi Int @db.SmallInt
-  equipaggiamentoId Int @db.SmallInt
+  equipaggiamento String[] @db.VarChar(50)
   privilegioId Int @db.SmallInt
 }
 
@@ -36,4 +36,54 @@ model Classi {
   caratteristicaId Int[] @db.SmallInt
   dadoVita String @db.VarChar(5)
   tiroSalvezzaId Int[] @db.SmallInt
+  hpLvl1 String @db.VarChar(50)
+  hpCalc String @db.VarChar(50)
+  competenzaArmature String[] @db.VarChar(20)
+  competenzaArmi String[] @db.VarChar(20)
+  competenzaAttrezzi String[] @db.VarChar(20)
+  compentezaAbilita String[] @db.VarChar(50)
+  equipaggiamento String[] @db.Text
+  privilegiDiClasse PrivilegiDiClasse @relation(fields: [privilegiDiClasseId],references: [id])
+  privilegiDiClasseId Int[]
+}
+
+model PrivilegiDiClasse {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(100)
+  descrizione String @db.Text
+  usatoDaClasse Classi[]
+}
+
+model Razze {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  bonusRaziali String @db.Text
+  eta String @db.Text
+  allineamento String @db.Text
+  velocita String @db.Text
+  taglia String @db.Text
+  linguaggi String @db.Text
+}
+
+model Condizioni {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+}
+
+model TipiDiDanno {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+}
+
+model Valuta {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  valoreInRame Int @db.SmallInt
+  valoreInArgento Int @db.SmallInt
+  valoreInElectrum Int @db.SmallInt
+  valoreInOro Int @db.SmallInt
+  valoreInPlatino Int @db.SmallInt
 }
