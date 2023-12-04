@@ -6,11 +6,14 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "commit": "cz"
   },
   "dependencies": {
     "@prisma/client": "^5.6.0",
+    "commitizen": "^4.3.0",
     "cors": "^2.8.5",
+    "cz-gitmoji": "^0.0.7",
     "dotenv": "^16.3.1",
     "express": "^4.18.2"
   },
@@ -18,5 +21,8 @@
     "@types/cors": "^2.8.16",
     "@types/express": "^4.17.21",
     "prisma": "^5.6.0"
+  },
+  "config": {
+    "cz-gitmoji": {}
   }
 }

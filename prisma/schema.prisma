@@ -8,8 +8,32 @@ generator client {
 }
 
 model Caratteristiche {
-  id  Int @id @default(autoincrement())
-  nome String @db.VarChar(15)
+  id  Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(25)
   descrizione String @db.Text
   abilita String[] @db.Text
+}
+
+model Allineamenti {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+}
+
+model Backgrounds {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.Text
+  competenze String[] @db.Text
+  linguaggi Int @db.SmallInt
+  equipaggiamentoId Int @db.SmallInt
+  privilegioId Int @db.SmallInt
+}
+
+model Classi {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  caratteristicaId Int[] @db.SmallInt
+  dadoVita String @db.VarChar(5)
+  tiroSalvezzaId Int[] @db.SmallInt
 }
