@@ -202,3 +202,22 @@ model OggettiInsoliti {
   nome String @db.Text
   valoreD100 Int @db.SmallInt
 }
+
+model Linguaggi {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  usatoDa String @db.VarChar(50)
+  alfabeto String? @db.VarChar(50)
+  linguaggioEsotico Boolean @db.Boolean
+  linguaggioStandard Boolean @db.Boolean
+  altroLinguaggio Boolean @db.Boolean
+  dialetto String? @db.VarChar(100)
+}
+
+model OggettiMagici {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(200)
+  descrizione String @db.Text
+  sintonia Boolean @db.Boolean
+  rarita String @db.VarChar(20)
+}
