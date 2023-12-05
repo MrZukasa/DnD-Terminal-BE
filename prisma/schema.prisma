@@ -87,3 +87,118 @@ model Valuta {
   valoreInOro Int @db.SmallInt
   valoreInPlatino Int @db.SmallInt
 }
+
+model ArmatureScudi {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  costo String @db.VarChar(20)
+  CA String @db.VarChar(160)
+  forzaRichiesta Int @db.SmallInt
+  svantaggioFurtivita Boolean @db.Boolean
+  peso String @db.VarChar(10)
+  tipoArmatura String @db.VarChar(50)
+  descrizioneTipoArmatura String @db.Text
+  sottoCategoriaArmatura String @db.VarChar(50)
+  descrizioneSottoCategoriaArmatura String @db.Text
+}
+
+model Armi {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  proprieta String @db.VarChar(50)
+  descrizioneProprieta String @db.Text
+  tipoArma String @db.VarChar(50)
+  descrizioneTipoArma String @db.Text
+  costo String @db.VarChar(10)
+  danni String @db.VarChar(30)
+  peso String @db.VarChar(10)
+}
+
+model Equipaggiamento {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  costo String @db.VarChar(10)
+  peso String @db.VarChar(10)
+}
+
+model Dotazioni {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  costo String @db.VarChar(10)
+}
+
+model Contenitori {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  capienza String @db.Text
+}
+
+model Strumenti {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  costo String @db.VarChar(10)
+  peso String @db.VarChar(10)
+  utilizzo String[] @db.VarChar(20)
+  descrizioneUtilizzo String[] @db.Text
+  attivita String @db.VarChar(100)
+  CDAttivita Int @db.SmallInt
+}
+
+model Cavalcature {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  costo String @db.VarChar(30)
+  velocita String @db.VarChar(10)
+  pesoTrasportabile String @db.VarChar(10)
+}
+
+model Veicoli {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  costo String @db.VarChar(50)
+  peso String? @db.VarChar(30) @default("-")
+  velocita String @db.VarChar(50)
+}
+
+model RegoleGenerali {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+}
+
+model Merci {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  costo String @db.Text
+}
+
+model Spese {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  descrizione String @db.Text
+  prezzoGiornaliero String @db.VarChar(100)
+}
+
+model VittoAlloggio {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  costo String @db.VarChar(30)
+}
+
+model Servizi {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.VarChar(20)
+  costo String @db.VarChar(30)
+}
+
+model OggettiInsoliti {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  nome String @db.Text
+  valoreD100 Int @db.SmallInt
+}
